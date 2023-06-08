@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&display=swap');
+/* font-family: 'IBM Plex Sans Arabic', sans-serif;  */
+
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    color: #3d3d3d;
+}
+
+body {
+    height: 99vh;
+    max-height: 100vh;
+    background: linear-gradient(to bottom right, rgb(67, 64, 230), rgb(236, 84, 84));
+    display: flex;
+    flex-direction: column;
+    font-size: x-large;
+}
+
+#header {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 40px;
+    margin-top: 2rem;
+}
+
+#game-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game {
+    height: 35rem;
+    width: 35rem;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    border-radius: 2.5rem;
+}
+
+.square {
+    border: #3d3d3d solid .5rem;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.square.one {
+    border-radius: 3rem 0 0 0;    
+}
+
+.square.three {
+    border-radius: 0 3rem 0 0;
+}
+
+.square.seven {
+    border-radius: 0 0 0 3rem;
+}
+
+.square.nine {
+    border-radius: 0 0 3rem 0;
+}
+
+.square img {
+    max-height: 9rem;
+    width: auto;
+}
+
+#footer {
+    flex: 1;
+    max-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
