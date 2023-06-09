@@ -11,13 +11,33 @@
 <body>
     <div id="header">
         <h1>Tic-Tac-Toe</h1>
+        <div id="call-menu">
+            <button data-modal-target="#menu"><h2>Menu</h2></button>
+        </div>
+
     </div>
     <div id="game-container">
         <div id="game">
+            <div id="game-score">
+                <p id="game-result"></p>
+                <p id="cross-score"></p>
+                <p id="circle-score"></p>
+            </div>
+            <div id="overlay-two" data-close-button></div>
+        </div>
+        <div id="menu">
+            <form action="index.html" method="post" class="game-form">
+                <input type="text" placeholder="Cross Player Name" id="cross-player-name">
+                <input type="text" placeholder="Circle Player Name" id="circle-player-name">
+                <input type="checkbox" name="computer-check" id="computer-check" class="toggle">
+                <label for="computer-check">Play AI?</label>
+                <input type="submit" name="submit" id="submit" data-close-button>
+            </form>
         </div>
     </div>
     <div id="footer">
         <p>by <strong>Max Pons</strong></p>
     </div>
+    <div id="overlay" data-close-button></div>
 </body>
 </html>
