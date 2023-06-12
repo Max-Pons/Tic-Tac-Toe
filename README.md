@@ -9,6 +9,17 @@ Having overcome that hurdle, I now feel confident in my understanding of objects
 
 In our current endeavor, we will utilize the factory pattern, module pattern, and my newly acquired understanding of private variables, functions, and closures to build this game.
 
-While I have ambitious plans to develop an AI with different difficulty levels, for now, my focus will be on building a functional UI that allows you to play the game with a friend locally.
+While I have ambitious plans to develop an AI with different difficulty levels, for now, my focus will be on building a functional UI that allows you to play the game with a friend locally or with a basic AI.
+
+UI (95%)
+Functionality (95%)
+AI (50%)
+
+You can now visit it here!
+
+https://max-pons.github.io/Tic-Tac-Toe/
+
+
+![Page Picture](img/tic-tac-toe.png)
 
 
