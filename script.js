@@ -8,17 +8,48 @@
     let crossCount = 0;
     let circleCount = 0;
 
+    function checkVictory(playerArray) {
+      if (                
+      playerArray.includes(document.querySelector('.one')) &&
+      playerArray.includes(document.querySelector('.two')) &&
+      playerArray.includes(document.querySelector('.three')) ||
+      playerArray.includes(document.querySelector('.four')) &&
+      playerArray.includes(document.querySelector('.five')) &&
+      playerArray.includes(document.querySelector('.six')) ||
+      playerArray.includes(document.querySelector('.seven')) &&
+      playerArray.includes(document.querySelector('.eight')) &&
+      playerArray.includes(document.querySelector('.nine')) ||
+      playerArray.includes(document.querySelector('.one')) &&
+      playerArray.includes(document.querySelector('.four')) &&
+      playerArray.includes(document.querySelector('.seven')) ||
+      playerArray.includes(document.querySelector('.two')) &&
+      playerArray.includes(document.querySelector('.five')) &&
+      playerArray.includes(document.querySelector('.eight')) ||
+      playerArray.includes(document.querySelector('.three')) &&
+      playerArray.includes(document.querySelector('.six')) &&
+      playerArray.includes(document.querySelector('.nine')) ||
+      playerArray.includes(document.querySelector('.one')) &&                
+      playerArray.includes(document.querySelector('.five')) &&
+      playerArray.includes(document.querySelector('.nine')) ||
+      playerArray.includes(document.querySelector('.three')) &&
+      playerArray.includes(document.querySelector('.five')) &&
+      playerArray.includes(document.querySelector('.seven')) 
+      ) {
+         return true
+      }
+    }
+
     const squareFactory = square => {
         const board = document.querySelector('#game');
         const squareDiv = document.createElement('div');
         const addClass = () => squareDiv.classList.add('square');
-        const addClassTwo = () => squareDiv.classList.add(square)
+        const addClassTwo = () => squareDiv.classList.add(square);
         const appendSquare = () => board.appendChild(squareDiv);
         const build = () => {
             addClass(),
             addClassTwo(), 
             appendSquare()
-        };
+        };     
         
         const moves = () => squareDiv.addEventListener('click', () => {
       
@@ -27,50 +58,38 @@
             cross.setAttribute('src', 'img/cross.png');
             circle.setAttribute('src', 'img/O.png');
             if (!squareDiv.querySelector('img')) {
+      
                 if (gameOutcome.length === 0 || 
                     gameOutcome.length === 2 ||
                     gameOutcome.length === 4 ||
                     gameOutcome.length === 6 ||
                     gameOutcome.length === 8) {
                     squareDiv.appendChild(cross);
-                    gameOutcome.push(squareDiv)
+                    gameOutcome.push(squareDiv);
                     crossArray.push(squareDiv);
-                }
+               }
                 else if (gameOutcome.length < 9){
                     squareDiv.appendChild(circle);
                     gameOutcome.push(squareDiv);
                     circleArray.push(squareDiv);
-                    console.log(circleArray)
+                } 
+                
+                if (document.querySelector('#computer-check').checked) {
+                  const squares = document.querySelectorAll('.square');
+                  const emptySquares = Array.from(squares).filter(square => !square.hasChildNodes());
+                
+                  if (emptySquares.length > 0 && !checkVictory(crossArray)) {
+                    const randomSquare = emptySquares[Math.floor(Math.random() * emptySquares.length)];
+                    randomSquare.appendChild(circle);
+                    gameOutcome.push(randomSquare);
+                    circleArray.push(randomSquare);   
+                  }      
                 }
-    
+
             }
 
 
-            if (crossArray.includes(document.querySelector('.one')) &&
-                crossArray.includes(document.querySelector('.two')) &&
-                crossArray.includes(document.querySelector('.three')) ||
-                crossArray.includes(document.querySelector('.four')) &&
-                crossArray.includes(document.querySelector('.five')) &&
-                crossArray.includes(document.querySelector('.six')) ||
-                crossArray.includes(document.querySelector('.seven')) &&
-                crossArray.includes(document.querySelector('.eight')) &&
-                crossArray.includes(document.querySelector('.nine')) ||
-                crossArray.includes(document.querySelector('.one')) &&
-                crossArray.includes(document.querySelector('.four')) &&
-                crossArray.includes(document.querySelector('.seven')) ||
-                crossArray.includes(document.querySelector('.two')) &&
-                crossArray.includes(document.querySelector('.five')) &&
-                crossArray.includes(document.querySelector('.eight')) ||
-                crossArray.includes(document.querySelector('.three')) &&
-                crossArray.includes(document.querySelector('.six')) &&
-                crossArray.includes(document.querySelector('.nine')) ||
-                crossArray.includes(document.querySelector('.one')) &&                
-                crossArray.includes(document.querySelector('.five')) &&
-                crossArray.includes(document.querySelector('.nine')) ||
-                crossArray.includes(document.querySelector('.three')) &&
-                crossArray.includes(document.querySelector('.five')) &&
-                crossArray.includes(document.querySelector('.seven')) 
-            ) {
+            if (checkVictory(crossArray)) {
                 setTimeout(function() {
                   const modal = document.querySelector('#game-score');
                   const overlay = document.querySelector('#overlay-two');
@@ -108,31 +127,7 @@
                 circleArray.length = 0;
                 crossArray.length = 0;
             }
-            else if (circleArray.includes(document.querySelector('.one')) &&
-            circleArray.includes(document.querySelector('.two')) &&
-            circleArray.includes(document.querySelector('.three')) ||
-            circleArray.includes(document.querySelector('.four')) &&
-            circleArray.includes(document.querySelector('.five')) &&
-            circleArray.includes(document.querySelector('.six')) ||
-            circleArray.includes(document.querySelector('.seven')) &&
-            circleArray.includes(document.querySelector('.eight')) &&
-            circleArray.includes(document.querySelector('.nine')) ||
-            circleArray.includes(document.querySelector('.one')) &&
-            circleArray.includes(document.querySelector('.four')) &&
-            circleArray.includes(document.querySelector('.seven')) ||
-            circleArray.includes(document.querySelector('.two')) &&
-            circleArray.includes(document.querySelector('.five')) &&
-            circleArray.includes(document.querySelector('.eight')) ||
-            circleArray.includes(document.querySelector('.three')) &&
-            circleArray.includes(document.querySelector('.six')) &&
-            circleArray.includes(document.querySelector('.nine')) ||
-            circleArray.includes(document.querySelector('.one')) &&                
-            circleArray.includes(document.querySelector('.five')) &&
-            circleArray.includes(document.querySelector('.nine')) ||
-            circleArray.includes(document.querySelector('.three')) &&
-            circleArray.includes(document.querySelector('.five')) &&
-            circleArray.includes(document.querySelector('.seven'))        
-            ) {
+            else if (checkVictory(circleArray)) {
                 setTimeout(function() {
                   const modal = document.querySelector('#game-score');
                   const overlay = document.querySelector('#overlay-two');

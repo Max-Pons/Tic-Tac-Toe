@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/cross-icon.png">
     <script src="script.js" defer></script>
     <title>Tic-Tac-Toe</title>
 </head>
@@ -27,9 +28,9 @@
         </div>
         <div id="menu">
             <form action="index.html" method="post" class="game-form">
-                <input type="text" placeholder="Cross Player Name" id="cross-player-name">
-                <input type="text" placeholder="Circle Player Name" id="circle-player-name">
-                <input type="checkbox" name="computer-check" id="computer-check" class="toggle">
+                <input type="text" placeholder="Cross Player Name" id="cross-player-name" required>
+                <input type="text" placeholder="Circle Player Name" id="circle-player-name" required>
+                <input type="checkbox" name="computer-check" id="computer-check" class="toggle" checked>
                 <label for="computer-check">Play AI?</label>
                 <input type="submit" name="submit" id="submit" data-close-button>
             </form>
