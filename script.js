@@ -167,7 +167,6 @@
                 gameOutcome.length = 0;
                 circleArray.length = 0;
                 crossArray.length = 0;
-                console.log(crossArray)
             }
 
             else if (gameOutcome.length === 9) {
@@ -177,6 +176,8 @@
                   modal.classList.add('active')
                   overlay.classList.add('active')
                   victoryMessage.textContent = `It's a tie ):`
+                  crossScore.textContent = `Cross: ${crossCount}`;
+                  circleScore.textContent = `Circle: ${circleCount}`;   
                 }, 0)
                 gameOutcome.length = 0;
                 circleArray.length = 0;
